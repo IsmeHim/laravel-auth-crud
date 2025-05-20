@@ -57,6 +57,10 @@ new #[Layout('components.layouts.auth')] class extends Component {
             return redirect()->route("admin.dashboard")->with("success", "Logged in success fully");
         }
 
+        if (Auth::user()->role === UserRole::User) {
+            return redirect()->route("home")->with('success', "Your logged in.");
+        }
+
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 

@@ -16,9 +16,9 @@
             </a>
         </div>
         <div class="flex flex-wrap gap-5">
-            <div class="bg-white text-black dark:bg-gray-400 rounded-2xl mt-3 p-6 max-w-96  w-full">
+            <div class="bg-white text-black dark:bg-gray-400 rounded-2xl mt-3 max-w-[800px] p-6">
                 <h1 class="text-2xl font-semibold">{{ $post->title }}</h1>
-                <p>{{ $post->content }}</p>
+                <p class="break-words">{{ $post->content }}</p>
             </div>
         </div>
     </div>

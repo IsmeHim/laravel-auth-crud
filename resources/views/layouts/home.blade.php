@@ -41,7 +41,9 @@
     }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans text-gray-800 bg-darkprimary">
     @yield('content')
+    <!-- อย่าลืมโหลด Alpine.js สำหรับ dropdown -->
+<script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>
