@@ -4,13 +4,15 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::get('/', [PostController::class,'home'])->name('home');
 
 
 // Route::view('admin/dashboard', 'admin.dashboard')
@@ -18,7 +20,7 @@ Route::view('dashboard', 'dashboard')
 //     ->name('admin.dashboard');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('dashboard', [PostController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [PostController::class, 'index'])->name('admin.dashboard');
     Route::get('post', [PostController::class, 'index'])->name('admin.post.index');
     Route::get('/create', [PostController::class, 'create'])->name('admin.post.create');
     Route::post('/store', [PostController::class, 'store'])->name('admin.post.store');

@@ -17,6 +17,12 @@ class PostController extends Controller
         return view('admin.dashboard', compact('posts'));
     }
 
+    public function home(){
+        // $posts = Post::all();
+        $posts = Post::orderBy('created_at','desc')->paginate(9);
+        return view('welcome', compact('posts'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

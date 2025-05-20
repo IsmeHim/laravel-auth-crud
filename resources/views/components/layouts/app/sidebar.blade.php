@@ -27,6 +27,14 @@
             <flux:spacer />
 
             <flux:navlist variant="outline">
+                {{-- อันนี้อิงจะให้แสดงเฉพาะแอดมิน --}}
+                @if (Auth::user()->role === App\Enums\UserRole::Admin)
+                    <flux:navlist.item icon="folder-git-2" href="{{ route('home') }}">
+                        {{ __('ดูหน้าบ้าน') }}
+                    </flux:navlist.item>
+                @endif
+                {{-- -- --}}
+                
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
